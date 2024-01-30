@@ -1,0 +1,57 @@
+<app-header></app-header>
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="banner_content text-center">
+                        <h2>New Admission</h2>
+                        <div class="page_link">
+                            <a>View Admission</a>
+                            <a href="#">home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================Contact Area =================-->
+<section class="contact_area section_gap">
+    <div class="container">
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th>Department</th>
+                <th>Status</th>
+                <th>Action</th>
+                <tbody>
+                    <tr *ngFor="let val of userList">
+                        <td>{{val.firstName}} {{val.lastName}}</td>
+                        <td>{{val.email}}</td>
+                        <td>{{val.mobile}}</td>
+                        <td>{{val.address}}</td>
+                        <td>{{val.departName}}</td>
+                        <td>
+                            <span *ngIf="val.isActive" class="badge badge-success">Approved</span>
+                            <span *ngIf="!val.isActive" class="badge badge-warning">Pending</span>
+                        </td>
+                        <td>
+                            <button (click)="activeUser(val)" class="btn btn-sm btn-success mx-2">Approved</button>
+                            <button (click)="deActiveUser(val)" class="btn btn-sm btn-danger mx-2">Reject</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<!--================Contact Area =================-->
+<app-footer></app-footer>

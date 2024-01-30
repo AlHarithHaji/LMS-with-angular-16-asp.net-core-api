@@ -1,0 +1,90 @@
+<app-header></app-header>
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="banner_content text-center">
+                        <h2>Welcome {{studentInfo.firstName}} {{studentInfo.lastName}}</h2>
+                        <div class="page_link">
+                            <a>Student Dashboard</a>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================Contact Area =================-->
+<section class="contact_area section_gap">
+    <div class="container">     
+        <div class="card">
+            <div class="card-header"><h5>User Information</h5></div>
+            <div class="card-body">
+                
+                <ul>
+                    <li><strong class="mr-3 mb-3">Name:</strong>{{studentInfo.firstName}}{{studentInfo.lastName}}</li>
+                    <li><strong class="mr-3 mb-3">Email:</strong> {{studentInfo.email}}</li>
+                    <li><strong class="mr-3 mb-3">Mobile:</strong> {{studentInfo.mobile}}</li>
+                    <li><strong class="mr-3 mb-3">Address:</strong> {{studentInfo.address}}</li>
+                    <li><strong class="mr-3 mb-3">Department:</strong> {{studentInfo.departName}}</li>
+                    <li><strong class="mr-3 mb-3">Course:</strong> {{studentInfo.courseName}}</li>
+                </ul>
+            </div>
+        </div>     
+
+        <div class="card mt-4">
+            <div class="card-header"><h5>Grade Information</h5></div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <th>Course</th>             
+                        <th>Total Marks</th>  
+                        <th>Obtained</th>       
+                        <th>Percentage%</th> 
+                        <tbody>
+                            <tr *ngFor="let val of gradeList">
+                             <td>{{val.courseName}}</td>   
+                             <td>{{val.totalMarks}}</td>  
+                             <td>{{val.obtainMarks}}</td>                   
+                             <td>{{val.percenTage}}%</td>  
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div> 
+        <div class="card mt-4">
+            <div class="card-header"><h5>Attendance Information</h5></div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <th>Course</th>             
+                        <th>Total Lectures</th>  
+                        <th>Presence</th>       
+                        <th>Percentage%</th> 
+                        <tbody>
+                            <tr *ngFor="let val of attendanceList">
+                             <td>{{val.courseName}}</td>   
+                             <td>{{val.totalLectures}}</td>  
+                             <td>{{val.presence}}</td>                   
+                             <td>{{val.presence/val.totalLectures*100}}%</td>  
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div> 
+    </div>
+</section>
+
+
+<!--================Contact Area =================-->
+<app-footer></app-footer>

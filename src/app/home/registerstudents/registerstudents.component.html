@@ -1,0 +1,82 @@
+<app-header></app-header>
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="banner_content text-center">
+                        <h2>Register Students</h2>
+                        <div class="page_link">
+                            <a>View Students</a>
+                            <a href="#">home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================Contact Area =================-->
+<section class="contact_area section_gap">
+    <div class="container">
+        <div class="row mb-5">
+          
+            <div class="col-md-10">
+                <ng-select [items]="departmentList" placeholder="Select Department" 
+                [(ngModel)]="formModel.departmentId" bindLabel="deparmentName" autofocus bindValue="departmentId">
+              </ng-select>
+            </div>
+          
+            <div class="col-md-2">
+                <button (click)="getStudents()" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th>Department</th>
+                <th>Status</th>
+         
+                <tbody>
+                    <tr *ngFor="let val of userList">
+                        <td>{{val.firstName}} {{val.lastName}}</td>
+                        <td>{{val.email}}</td>
+                        <td>{{val.mobile}}</td>
+                        <td>{{val.address}}</td>
+                        <td>{{val.departName}}</td>
+                        <td>
+                            <span *ngIf="val.isActive" class="badge badge-success">Approved</span>
+                            <span *ngIf="!val.isActive" class="badge badge-warning">Pending</span>
+                        </td>
+                     
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row" *ngIf="userList.length">
+            <div class="col-lg-6">              
+            </div>
+            <div class="col-md-3 ">
+                <button (click)="downloadExcel()" class="btn btn-primary w-100">Download Excel</button>
+            </div>
+            <div class="col-md-3">
+                <button [disabled]="isSending" (click)="sendEmail()" class="btn btn-success  w-100">Send Mail & Confirm Admission</button>
+            </div>
+        </div>
+        <div class="row">
+            <div *ngIf="showMessage" class="alert alert-success w-100" role="alert">
+                {{responseMessage}}
+              </div>
+        </div>
+    </div>
+</section>
+<!--================Contact Area =================-->
+<app-footer></app-footer>

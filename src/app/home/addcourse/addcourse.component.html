@@ -1,0 +1,71 @@
+<app-header></app-header>
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="banner_content text-center">
+                        <h2>Manage Courses</h2>
+                        <div class="page_link">
+                            <a>View Course</a>
+                            <a href="#">home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================Contact Area =================-->
+<section class="contact_area section_gap">
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <ng-select [items]="departmentList" placeholder="Select Department" 
+                [(ngModel)]="formModel.deparmentId" bindLabel="deparmentName" autofocus bindValue="departmentId">
+              </ng-select>
+            </div>
+            <div class="col-md-4">
+                <input  placeholder="Course Name" class="form-control" type="text" [(ngModel)]="formModel.courseName" />   
+                <input  placeholder="Teacher Name" class="form-control" type="hidden" [(ngModel)]="formModel.courseId" /> 
+                <input  placeholder="Teacher Name" class="form-control" type="hidden" [(ngModel)]="formModel.isDeleted" />             
+            </div>
+          
+            <div class="col-md-2">
+                <button *ngIf="!formModel.courseId" (click)="SaveCourse()" class="btn btn-primary w-100">Submit</button>
+                <button *ngIf="formModel.courseId" (click)="updateCourse()" class="btn btn-warning w-100">Update</button>
+            </div>
+            <div class="col-md-2">
+                <button  (click)="reset()" class="btn btn-default w-100">Reset</button>
+              
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <th>Department</th>         
+                <th>Course</th>      
+                <th>Action</th>       
+         
+                <tbody>
+                    <tr *ngFor="let val of courseList">
+                     <td style="width: 40%;">{{val.deparmentName}}</td> 
+                     <td style="width: 40%;">{{val.courseName}}</td>                    
+                     <td>
+                        <button (click)="edit(val)" class="btn btn-warning mx-2">Edit</button>
+                        <button (click)="delete(val)" class="btn btn-danger">Delete</button>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      
+     
+    </div>
+</section>
+<!--================Contact Area =================-->
+<app-footer></app-footer>

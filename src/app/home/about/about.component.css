@@ -1,0 +1,17 @@
+.carousel-item.active {
+    display: flex!important;}
+
+    
+.carousel-indicators li {
+    background-color: #b3a3a3;
+        position: relative;
+        flex: 0 1 auto;
+        width: 30px;
+        height: 3px;} 
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+            display: flex;
+            transition: transform .4s ease;
+}
+.carousel-item-next[_ngcontent-ng-c994048479], .carousel-item-prev[_ngcontent-ng-c994048479], .carousel-item.active[_ngcontent-ng-c994048479] {
+     display: flex;
+}

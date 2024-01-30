@@ -1,0 +1,93 @@
+<app-header></app-header>
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="banner_content text-center">
+                        <h2>Manage Teacher & Classroom Allocation</h2>
+                        <div class="page_link">
+                            <a>View Allocation</a>
+                            <a href="#">home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================Contact Area =================-->
+<section class="contact_area section_gap">
+    <div class="container">
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <ng-select [items]="courseList" placeholder="Select Course" 
+                [(ngModel)]="formModel.courseId" bindLabel="courseName" autofocus bindValue="courseId">
+              </ng-select>
+            </div>
+            <div class="col-md-4">
+                <ng-select [items]="teachersList" placeholder="Select Teacher" 
+                [(ngModel)]="formModel.teacherId" bindLabel="teacherName" autofocus bindValue="teacherId">
+              </ng-select>
+            </div>
+            <div class="col-md-4">
+                <ng-select [items]="classRoomList" placeholder="Select Classroom" 
+                [(ngModel)]="formModel.classRoomId" bindLabel="classRoom" autofocus bindValue="classRoomId">
+              </ng-select>
+            </div>
+           
+        </div>
+        <div class="row mb-3">
+            <div class="col-md-4">
+                <input type="datetime-local" class="form-control" placeholder="Start Date" [(ngModel)]="formModel.startTime" >
+            </div>
+            <div class="col-md-4">
+                <input type="datetime-local" class="form-control" placeholder="End Time" [(ngModel)]="formModel.endTime" >
+            </div>
+        
+            <div class="col-md-2">
+                <button (click)="SaveAllocation()" class="btn btn-primary w-100">Submit</button>     
+            </div>
+            <div class="col-md-2">
+                <button  (click)="reset()" class="btn btn-default w-100">Reset</button>
+              
+            </div>
+        </div>
+        <div *ngIf="showMessage" class="alert alert-success w-100" role="alert">
+            {{responseMessage}}
+          </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <th>Course</th>         
+                <th>Teacher</th>  
+                <th>Room</th> 
+                <th>Start</th> 
+                <th>End</th>      
+                <th>Action</th>       
+         
+                <tbody>
+                    <tr *ngFor="let val of allocationList">
+                     <td >{{val.courseName}}</td> 
+                     <td >{{val.teacherName}}</td>  
+                     <td >{{val.classRoom}}</td>    
+                     <td >{{val.startTime | date:'hh:mm:aa'}}</td>    
+                     <td >{{val.endTime | date:'hh:mm:aa'}}</td>                    
+                     <td>
+                       
+                        <button (click)="delete(val)" class="btn btn-danger">Delete</button>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      
+     
+    </div>
+</section>
+<!--================Contact Area =================-->
+<app-footer></app-footer>

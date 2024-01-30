@@ -1,0 +1,103 @@
+<!--================ Start Header Menu Area =================-->
+
+<header class="header_area">
+  <div class="main_menu">
+
+
+    <nav class="navbar navbar-expand-lg navbar-light" id="myHeader">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <a class="navbar-brand" href="index.html">
+          <img class="logo-2" src="/assets/img/logo2.png" alt="" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="icon-bar"></span> <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
+          <ul class="nav navbar-nav menu_nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/About">About</a>
+            </li>
+            <li *ngIf="IsUser && isLoginIn" class="nav-item submenu dropdown">
+              <a routerLink="/studentdashboard/0" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">My Course</a>
+            
+            </li>
+         
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/Contact">Contact</a>
+            </li>
+            <li *ngIf="IsAdmin && isLoginIn" class="nav-item submenu dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">Admin</a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/Newadmission">New Admission</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/Registerstudents">Register Students</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/Teachers">Teachers</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/addcourse">Course</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/classroom">Classroom</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/add-user">Add User</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/Allocateroom">Allocation</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/allstudents">All Students</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li *ngIf="IsTeacher && isLoginIn" class="nav-item submenu dropdown">
+              <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                aria-expanded="false">Teacher</a>
+              <ul class="dropdown-menu">
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/Addattendance">Add Attendance</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/add-grade">Add Grade</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/upgrad-students">Promote Students</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/allstudents">All Students</a>
+                </li>
+                
+              </ul>
+            </li>
+            <li *ngIf="!isLoginIn" class="nav-item">
+              <a class="nav-link" routerLink="/login">Login</a>
+            </li>
+            <li *ngIf="isLoginIn" class="nav-item">
+              <a class="nav-link" href="#" (click)="logout()">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link search" id="search">
+                <i class="ti-search"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</header>
+<!--================ End Header Menu Area =================-->

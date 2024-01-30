@@ -1,0 +1,74 @@
+a.event-link {
+    margin-left: 160px;
+}
+
+.carousel-item-next, .carousel-item-prev, .carousel-item.active {
+    display: flex;
+    transition: transform 0.5s ease; /* Use 'ease' for a standard easing effect */
+  }
+
+ 
+  
+.carousel-indicators li {
+  background-color: #b3a3a3;
+      position: relative;
+      flex: 0 1 auto;
+      width: 30px;
+      height: 3px;} 
+
+.carousel-item-next[_ngcontent-ng-c994048479], .carousel-item-prev[_ngcontent-ng-c994048479], .carousel-item.active[_ngcontent-ng-c994048479] {
+   display: flex;
+}
+
+  
+.carousel-item.active {
+    display: flex!important;}
+
+    .section_gap.registration_area {
+      margin-top: 40px;
+  }
+
+  .carousel-item.active[_ngcontent-ng-c631312538] {
+    display: flex;
+    transition: transform 0.1s ease-out;
+}
+html {
+    scroll-behavior: smooth;
+  }
+  
+  
+  
+  header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px; /* Adjust this value as per your header height */
+ 
+  }
+  .nav-item .nav-link {
+    color: #002347!important;
+    font-family:"Rubik", sans-serif!important;
+    font-weight: 700!important;
+}
+.header_area .navbar .nav .nav-item:hover .nav-link,
+.header_area .navbar .nav .nav-item.active .nav-link{
+    color:#fdc632!important;
+}
+.header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link {
+  
+    color:#002347 !important;}
+.header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link:hover {
+  
+        color: #002347!important;}
+.header_area .navbar .nav .nav-item.submenu ul .nav-item .nav-link {
+        line-height: 45px!important;
+        color: #002347;
+        padding: 0px 30px!important;
+        transition: all 150ms linear;
+        display: block;
+        margin-right: 0px;
+      
+    }
+h1, h2, h3, h4, h5, h6 {
+        font-family: "Rubik", sans-serif!important;
+        font-weight: 600!important; }

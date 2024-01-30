@@ -1,0 +1,80 @@
+<app-header></app-header>
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="banner_content text-center">
+                        <h2>Add Student Grades</h2>
+                        <div class="page_link">
+                            <a>Student Grade</a>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================Contact Area =================-->
+<section class="contact_area section_gap">
+    <div class="container">   
+        <div class="row">
+            <div class="col-md-5 col-sm-12">
+                <ng-select [items]="departmentList" placeholder="Select Department" 
+                [(ngModel)]="formModel.deparmentId" bindLabel="deparmentName" autofocus bindValue="departmentId">
+              </ng-select>
+               </div> 
+            <div class="col-md-5 col-sm-12">
+                <ng-select [items]="courseList" placeholder="Select Course" 
+                [(ngModel)]="formModel.courseId" bindLabel="courseName" autofocus bindValue="courseId">
+              </ng-select>
+               </div> 
+               
+               <div class="col-md-2 col-sm-12">
+                <button  (click)="GetStudentsGrade()" class="btn btn-primary w-100">Search</button>
+               </div>
+        </div>  
+     <br>
+     <div *ngIf="studentList.length" class="table-responsive">
+        <table class="table table-bordered">
+            <th>Student Name</th>         
+            <th>Course</th>
+            <th>Email</th>     
+            <th>Session</th>  
+            <th>Action</th>       
+     
+            <tbody>
+                <tr *ngFor="let val of studentList ; let i = index">
+                 <td >{{val.studentName}}</td> 
+                 <td >{{val.courseName}}</td>  
+                 <td >{{val.email}}</td>  
+                 <td >{{val.sesstionName}}</td>                    
+                 <td style="width: 20%;">
+                    <input type="number" [(ngModel)]="val.presence" (change)="onChange($event,i)" placeholder="Obtained Marks" class="form-control"  >                  
+                </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <div *ngIf="studentList.length" class="row">
+        <div class="col-md-10">
+            <input type="number" class="form-control" [(ngModel)]="formModel.TotalMarks" placeholder="Total Marks" >
+        </div>
+        <div class="col-md-2">
+            <button (click)="SaveGrades()" class="btn btn-primary w-100">Save</button>
+        </div>
+    </div>
+    <div *ngIf="showMessage" class="alert alert-success w-100 mt-4" role="alert">
+        {{responseMessage}}
+      </div>
+    </div>
+</section>
+
+<!--================Contact Area =================-->
+<app-footer></app-footer>

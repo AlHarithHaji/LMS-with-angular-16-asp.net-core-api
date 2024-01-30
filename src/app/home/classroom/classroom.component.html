@@ -1,0 +1,65 @@
+<app-header></app-header>
+<!--================Home Banner Area =================-->
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="banner_content text-center">
+                        <h2>Manage Classrooms</h2>
+                        <div class="page_link">
+                            <a>View Classrooms</a>
+                            <a href="#">home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================Contact Area =================-->
+<section class="contact_area section_gap">
+    <div class="container">
+        <div class="row mb-3">
+          
+            <div class="col-md-8">
+                <input  placeholder="Class Room" class="form-control" type="text" [(ngModel)]="formModel.classRoom" />   
+                <input  placeholder="Teacher Name" class="form-control" type="hidden" [(ngModel)]="formModel.classRoomId" /> 
+                <input  placeholder="Teacher Name" class="form-control" type="hidden" [(ngModel)]="formModel.isDeleted" />             
+            </div>
+          
+            <div class="col-md-2">
+                <button *ngIf="!formModel.classRoomId" (click)="saveClassRoome()" class="btn btn-primary w-100">Submit</button>
+                <button *ngIf="formModel.classRoomId" (click)="updateClassRoom()" class="btn btn-warning w-100">Update</button>
+            </div>
+            <div class="col-md-2">
+                <button  (click)="reset()" class="btn btn-default w-100">Reset</button>
+              
+            </div>
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <th>Name</th>             
+                <th>Action</th>       
+         
+                <tbody>
+                    <tr *ngFor="let val of classRoomList">
+                     <td style="width: 80%;">{{val.classRoom}}</td>                    
+                     <td>
+                        <button (click)="edit(val)" class="btn btn-warning mx-2">Edit</button>
+                        <button (click)="delete(val)" class="btn btn-danger">Delete</button>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+      
+     
+    </div>
+</section>
+<!--================Contact Area =================-->
+<app-footer></app-footer>
